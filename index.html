@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý nhân sự</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <span class="brand">Quản lý nhân sự</span>
+        <a href="#">Trang chủ</a>
+        <a href="#">Liên hệ</a>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm..." />
+        <button>Tìm</button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h2>Danh sách nhân sự</h2>
+          <button id="btnOpenModal" class="btn-add">+ Thêm mới</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Họ tên</th>
+              <th>Email</th>
+              <th>Số điện thoại</th>
+              <th>Vị trí</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="employeeTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="employeeModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Thêm nhân sự mới</h3>
+          <span class="close-modal" id="btnClose">&times;</span>
+        </div>
+        <form id="employeeForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Họ tên</label>
+              <input
+                type="text"
+                id="fullName"
+                required
+                maxlength="30"
+                placeholder="Tối đa 30 ký tự" />
+              <span class="error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="example@gmail.com" />
+              <span class="error" id="emailError"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Số điện thoại</label>
+              <input
+                type="text"
+                id="phone"
+                required
+                maxlength="10"
+                placeholder="10 chữ số" />
+              <span class="error" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+              <label>Vị trí</label>
+              <select id="position" required>
+                <option value="">-- Chọn vị trí --</option>
+                <option value="Nhân viên">Nhân viên</option>
+                <option value="Quản lý">Quản lý</option>
+                <option value="Giám đốc">Giám đốc</option>
+              </select>
+              <span class="error" id="positionError"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Giới tính</label>
+            <div class="radio-group">
+              <label
+                ><input type="radio" name="gender" value="Nam" checked />
+                Nam</label
+              >
+              <label><input type="radio" name="gender" value="Nữ" /> Nữ</label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn-save">Lưu</button>
+            <button type="button" class="btn-cancel" id="btnCancel">Hủy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
